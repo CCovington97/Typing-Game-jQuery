@@ -38,7 +38,8 @@ $(document).ready(function () {
         }
         $('#yellow-block').css('left', '+=17.5px')
         letterIndex++
-        
+        currentLetter = currentSentence[letterIndex];
+        $('#target-letter').text(currentLetter);
         // if sentence ends ... what do?
         // if game ends ... what am do?
     })
