@@ -15,14 +15,14 @@ $(document).ready(function () {
     let currentSentence = sentences[sentIndex];
     let currentLetter = currentSentence[letterIndex];
     // let length = [sentences[0].length, sentences[1].length, sentences[2].length, sentences[3].length, sentences[4].length]
-    
     // sentences[0].length = 48
     // sentences[1].length = 47
     // sentences[2].length = 48
     // sentences[3].length = 48
     // sentences[4].length = 49
+
     $('#sentence').text(currentSentence)
-    $('#target-letter').text(currentLetter)
+    $('#target-letter').text(currentLetter) // Objective 7
 
     // Objective 3 Complete
 
@@ -55,14 +55,14 @@ $(document).ready(function () {
         $(`#${e.keyCode}`).css('background-color', 'darkgoldenrod')
         //Objective 6
         if (currentSentence.charCodeAt(letterIndex) === e.keyCode) {
-            $('#feedback').append('<span class="glyphicon glyphicon-ok"></span>')
+            $('#feedback').append('<span class="glyphicon glyphicon-ok"></span>') // Objective 8
             $('#yellow-block').css('left', '+=17.5px')
             letterIndex++
             currentLetter = currentSentence[letterIndex];
             $('#target-letter').text(currentLetter);
             console.log(letterIndex)
         } else {
-            $('#feedback').append('<span class="glyphicon glyphicon-remove"></span>')
+            $('#feedback').append('<span class="glyphicon glyphicon-remove"></span>') // Objective 8
         }
         if (letterIndex == currentSentence.length) {
             console.log('This should change the sentence')
@@ -72,8 +72,8 @@ $(document).ready(function () {
             currentLetter = currentSentence[letterIndex]
             $('#sentence').text(sentences[sentIndex])
             $('#feedback').text('')
-            $('#target-letter').text(currentLetter)
-            $('#yellow-block').css('left', '17.5px')
+            $('#target-letter').text(currentLetter) // Objective 7
+            $('#yellow-block').css('left', '17.5px') // Objective 6
         }
 
         // if game ends ... what am do?
