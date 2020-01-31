@@ -2,14 +2,14 @@ $(document).ready(function () {
     let keyboardLowerContainer = $('#keyboard-lower-container')
     let keyboardUpperContainer = $('#keyboard-upper-container')
 
-    // Objective 5
+    // Objective 5 Complete
 
     let sentences = [
-        'ten ate neite ate nee enet ite ate inet ent eate',
-        'Too ato too nOt enot one totA not anot tOO aNot',
-        'oat itain oat tain nate eate tea anne inant nean',
-        'itant eate anot eat nato inate eat anot tain eat',
-        'nee ene ate ite tent tiet ent ine ene ete ene ate'];
+        'ten ate neite ate nee enet ite ate inet ent eate',          // 11 words
+        'Too ato too nOt enot one totA not anot tOO aNot',          // 11 words
+        'oat itain oat tain nate eate tea anne inant nean',                  // 10 words
+        'itant eate anot eat nato inate eat anot tain eat',                   // 10 words
+        'nee ene ate ite tent tiet ent ine ene ete ene ate'];  // 12 words
     let sentIndex = 0;
     let letterIndex = 0;
     let currentSentence = sentences[sentIndex];
@@ -22,7 +22,7 @@ $(document).ready(function () {
     // sentences[4].length = 49
 
     $('#sentence').text(currentSentence)
-    $('#target-letter').text(currentLetter) // Objective 7
+    $('#target-letter').text(currentLetter) // Objective 7 Complete
 
     // Objective 3 Complete
 
@@ -55,16 +55,18 @@ $(document).ready(function () {
         $(`#${e.keyCode}`).css('background-color', 'darkgoldenrod')
         //Objective 6
         if (currentSentence.charCodeAt(letterIndex) === e.keyCode) {
-            $('#feedback').append('<span class="glyphicon glyphicon-ok"></span>') // Objective 8
+            $('#feedback').append('<span class="glyphicon glyphicon-ok"></span>') // Objective 8 Complete
             $('#yellow-block').css('left', '+=17.5px')
             letterIndex++
             currentLetter = currentSentence[letterIndex];
             $('#target-letter').text(currentLetter);
             console.log(letterIndex)
         } else {
-            $('#feedback').append('<span class="glyphicon glyphicon-remove"></span>') // Objective 8
+            $('#feedback').append('<span class="glyphicon glyphicon-remove"></span>') // Objective 8 Complete
         }
         if (letterIndex == currentSentence.length) {
+            speed(); // Objective 9
+            
             console.log('This should change the sentence')
             letterIndex = 0;
             sentIndex++
@@ -72,16 +74,36 @@ $(document).ready(function () {
             currentLetter = currentSentence[letterIndex]
             $('#sentence').text(sentences[sentIndex])
             $('#feedback').text('')
-            $('#target-letter').text(currentLetter) // Objective 7
-            $('#yellow-block').css('left', '17.5px') // Objective 6
-        }
+            $('#target-letter').text(currentLetter) // Objective 7 Complete
+            $('#yellow-block').css('left', '17.5px') // Objective 6 Complete
+        
+            
+            // gameEnd();
+        } 
 
         // if game ends ... what am do?
     })
-    console.log(currentSentence.length)
+
+    // Objective 9
+
+    function speed () {
+
+        let words = 11
+        let start = new Date();
+        let end = new Date();
+        let time = end-start;
+        let mistakes = $('.glyphicon-remove').children().length;
+        console.log(mistakes)
+        let typeSpeed = (words/time) - (2 * mistakes)
+        console.log(typeSpeed)
+        // alert(`Your speed is ${'Hi I am Paul'}`)
+    }
+
+    // Objective 10
+
+    // function gameEnd() {
+    //     if (currentSentence === 4, currentLetter === 49) {
+    //         console.log('Game end')
+    //     }
+    // }
 })
-
-
-
-
-
