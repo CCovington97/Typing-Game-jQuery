@@ -73,9 +73,9 @@ $(document).ready(function () {
             $('#sentence').text(sentences[sentIndex])
             $('#feedback').text('')
             $('#target-letter').text(currentLetter)
+            $('#yellow-block').css('left', '17.5px')
         }
 
-        // if sentence ends ... what do?
         // if game ends ... what am do?
     })
     console.log(currentSentence.length)
