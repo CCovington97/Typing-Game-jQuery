@@ -5,11 +5,11 @@ $(document).ready(function () {
     // Objective 5 Complete
 
     let sentences = [
-        'ten ate neite ate nee enet ite ate inet ent eate',          // 11 words
-        'Too ato too nOt enot one totA not anot tOO aNot',          // 11 words
-        'oat itain oat tain nate eate tea anne inant nean',                  // 10 words
-        'itant eate anot eat nato inate eat anot tain eat',                   // 10 words
-        'nee ene ate ite tent tiet ent ine ene ete ene ate'];  // 12 words
+        'ten ate neite ate nee enet ite ate inet ent eate', // 11 words
+        'Too ato too nOt enot one totA not anot tOO aNot', // 11 words
+        'oat itain oat tain nate eate tea anne inant nean', // 10 words
+        'itant eate anot eat nato inate eat anot tain eat', // 10 words
+        'nee ene ate ite tent tiet ent ine ene ete ene ate']; // 12 words
     let sentIndex = 0;
     let letterIndex = 0;
     let currentSentence = sentences[sentIndex];
@@ -23,6 +23,7 @@ $(document).ready(function () {
 
     $('#sentence').text(currentSentence)
     $('#target-letter').text(currentLetter) // Objective 7 Complete
+    let start = new Date() // Objective 9
 
     // Objective 3 Complete
 
@@ -63,7 +64,11 @@ $(document).ready(function () {
             console.log(letterIndex)
         } else {
             $('#feedback').append('<span class="glyphicon glyphicon-remove"></span>') // Objective 8 Complete
-        }
+        } // Objective 6
+        // Objective 9
+        if (letterIndex === 1) {
+            console.log(start)
+        } // Objective 9
         if (letterIndex == currentSentence.length) {
             speed(); // Objective 9
             
@@ -88,15 +93,19 @@ $(document).ready(function () {
 
     function speed () {
 
-        let words = 11
-        let start = new Date();
+        let words = [11, 11, 10, 10, 12]
         let end = new Date();
-        let time = end-start;
+        console.log(end)
+        let time = (end-start)/60000;
+        console.log(time)
         let mistakes = $('.glyphicon-remove').children().length;
-        console.log(mistakes)
-        let typeSpeed = (words/time) - (2 * mistakes)
-        console.log(typeSpeed)
-        // alert(`Your speed is ${'Hi I am Paul'}`)
+        console.log(mistakes) 
+        for (i === 0; i < words.length; i++) {
+            let roundSpeed = Math.round((words[i]/time) - (2 * mistakes))
+            console.log(roundSpeed)
+            alert(`Your speed is ${roundSpeed} per minute`)
+        }
+        
     }
 
     // Objective 10
@@ -106,4 +115,4 @@ $(document).ready(function () {
     //         console.log('Game end')
     //     }
     // }
-})
+}) 
