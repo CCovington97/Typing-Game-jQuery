@@ -41,8 +41,8 @@ $(document).ready(function () {
             $(keyboardUpperContainer).css('display', 'none')
             console.log('Shift letters down')
         }
-        
-    //  Objective 4 Complete
+
+        //  Objective 4 Complete
 
         else {
             let letter = event.key.charCodeAt(0);
@@ -70,8 +70,6 @@ $(document).ready(function () {
             console.log(start)
         } // Objective 9
         if (letterIndex == currentSentence.length) {
-            speed(); // Objective 9
-            
             console.log('This should change the sentence')
             letterIndex = 0;
             sentIndex++
@@ -81,38 +79,35 @@ $(document).ready(function () {
             $('#feedback').text('')
             $('#target-letter').text(currentLetter) // Objective 7 Complete
             $('#yellow-block').css('left', '17.5px') // Objective 6 Complete
-        
-            
-            // gameEnd();
-        } 
-
-        // if game ends ... what am do?
-    })
-
-    // Objective 9
-
-    function speed () {
-
-        let words = [11, 11, 10, 10, 12]
-        let end = new Date();
-        console.log(end)
-        let time = (end-start)/60000;
-        console.log(time)
-        let mistakes = $('.glyphicon-remove').children().length;
-        console.log(mistakes) 
-        for (i === 0; i < words.length; i++) {
-            let roundSpeed = Math.round((words[i]/time) - (2 * mistakes))
-            console.log(roundSpeed)
-            alert(`Your speed is ${roundSpeed} per minute`)
+        } else if (sentIndex > 4) {
+            gameEnd();
         }
-        
+    })
+    // if game ends ... what am do?
+})
+
+// Objective 9
+
+function speed() {
+    let words = [54]
+    let end = new Date();
+    console.log(end)
+    let time = (end - start) / 60000;
+    console.log(time)
+    let mistakes = $('.glyphicon-remove').children().length;
+    console.log(mistakes)
+    let roundSpeed = Math.round((words / time) - (2 * mistakes))
+    console.log(roundSpeed)
+    alert(`Your speed is ${roundSpeed} per minute`)
+    confirm('Hi')
+}
+
+// Objective 10
+
+function gameEnd() {
+    if (currentSentence === 4, currentLetter === 48) {
+        console.log('Game end')
+        speed(); // Objective 9
     }
-
-    // Objective 10
-
-    // function gameEnd() {
-    //     if (currentSentence === 4, currentLetter === 49) {
-    //         console.log('Game end')
-    //     }
-    // }
-}) 
+}
+ 
